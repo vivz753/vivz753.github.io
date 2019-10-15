@@ -7,13 +7,16 @@ export const SelectedMenuItemProvider = ({children}) => {
   const [ selectedSiderGroup, setSelectedSiderGroup ] = useState('');
   const [ selectedSiderItem, setSelectedSiderItem ] = useState('BIO');
   const [ contentPage, setContentPage ] = useState('BIO');
+  const [ siderCollapsed, setSiderCollapsed ] = useState(false);
+
 
   return (
     <SelectedMenuItemContext.Provider value={{
       selectedMenuItem, setSelectedMenuItem, 
       selectedSiderGroup, setSelectedSiderGroup, 
       selectedSiderItem, setSelectedSiderItem, 
-      contentPage, setContentPage
+      contentPage, setContentPage,
+      siderCollapsed, setSiderCollapsed 
     }}>
       {children}
     </SelectedMenuItemContext.Provider>

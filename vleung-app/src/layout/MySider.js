@@ -10,7 +10,7 @@ const { SubMenu } = Menu;
 
 export const MySider = () => {
 
-  const {selectedMenuItem, selectedSiderGroup, setSelectedSiderGroup, selectedSiderItem, setSelectedSiderItem, setContentPage} = useSelectedMenuItemValue();
+  const {selectedMenuItem, selectedSiderGroup, setSelectedSiderGroup, selectedSiderItem, setSelectedSiderItem, setContentPage, siderCollapsed} = useSelectedMenuItemValue();
 
   let sideMenuItems = [];
   selectedMenuItem === 'PROJECTS' ? sideMenuItems = ProjectItems : sideMenuItems = AboutItems;
@@ -19,7 +19,11 @@ export const MySider = () => {
   console.log(selectedSiderGroup);
   console.log(selectedSiderItem);
   return (
-    <Sider width={300} style={{ background: '#fff' }}>
+    <Sider 
+      collapsed={siderCollapsed}
+      width={300} 
+      style={{ background: '#fff' }}
+    >
         <Menu
           mode="inline"
           defaultSelectedKeys={[selectedSiderItem]}
@@ -39,7 +43,9 @@ export const MySider = () => {
               title={
                 <span>
                   <Icon type={item.icon} />
-                  {item.name}
+                  <span>
+                    {item.name}
+                  </span>
                 </span>
               }
               onTitleClick={({key}) => {
@@ -64,7 +70,9 @@ export const MySider = () => {
               key={item.key}
             >
                <Icon type={item.icon} />
+               <span>
               {item.name}
+               </span>
             </Menu.Item>
           )
         })

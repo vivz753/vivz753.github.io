@@ -3,9 +3,8 @@ import { MySider } from './MySider';
 import { MyPages } from './MyPages';
 import { getMenuName, getProjectName, getAboutItemName } from '../helpers';
 import { useSelectedMenuItemValue } from '../context';
-import { Layout, Breadcrumb } from 'antd';
-const { Content } = Layout;
-
+import { Layout, Row, Breadcrumb, Icon } from 'antd';
+const { Content, Header } = Layout;
 
 export const MyContent = () => {
   const {selectedMenuItem, selectedSiderGroup, selectedSiderItem} = useSelectedMenuItemValue();
@@ -26,9 +25,12 @@ export const MyContent = () => {
       {siderItemName  && <Breadcrumb.Item>{siderItemName}</Breadcrumb.Item>}
     </Breadcrumb>
 
-    <Layout style={{ padding: '24px 0', background: '#fff' }}>
-      <MySider />
-      <MyPages />
+    <Layout style={{ padding: '24px 0', background: '#fff' , height: '100%'}}>
+
+        <MySider />
+        <MyPages />
+
+      
     </Layout>
   </Content>
   )

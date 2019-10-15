@@ -6,6 +6,8 @@ export const MenuItems = [
 export const AboutItems = [
   {key: 'BIO', name: 'Bio', icon: 'user'},
   {key: 'RESUME', name: 'Resume', icon: 'solution'},
+  {key: 'CUBE', name: 'Cube', icon: 'codepen'},
+
 ]
 
 export const ProjectItems = [

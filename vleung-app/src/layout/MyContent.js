@@ -1,6 +1,6 @@
 import React from 'react';
-import Cube from '../Cube';
 import { MySider } from './MySider';
+import { MyPages } from './MyPages';
 import { getMenuName, getProjectName, getAboutItemName } from '../helpers';
 import { useSelectedMenuItemValue } from '../context';
 import { Layout, Breadcrumb } from 'antd';
@@ -28,10 +28,7 @@ export const MyContent = () => {
 
     <Layout style={{ padding: '24px 0', background: '#fff' }}>
       <MySider />
-      
-      <Content style={{ padding: '0 24px', minHeight: 280 }}>
-        <Cube />
-      </Content>
+      <MyPages />
     </Layout>
   </Content>
   )

@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 import * as THREE from "three";
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
-const style = {
-    height: 500 // we can control scene size by setting container dimensions
+import React, { Component } from "react";
 
+const style = {
+    height: '600px', // we can control scene size by setting container dimensions
+    width: '100%'
   };
 
+
+
 class Cube extends Component { 
-
-
       
     componentDidMount() {
 
         this.sceneSetup();
         this.addCustomSceneObjects();
         this.startAnimationLoop();
-        
+
         //check for window resizing
-        window.addEventListener("resize", this.handleWindowResize);
+        // window.addEventListener("resize", this.handleWindowResize);
 
       }
 
@@ -96,6 +98,17 @@ class Cube extends Component {
       };
 
     render(){
+
+        // const targetRef = useRef();
+        // console.log(targetRef.current.offSetWidth)
+        // this.setState({
+        //     dimensions: {
+        //       width: targetRef.current.offsetWidth,
+        //       height: targetRef.current.offsetHeight
+        //     },
+        //   });
+
+
         return(
             <div style={style} ref={ref => (this.mount = ref)}></div>
         )

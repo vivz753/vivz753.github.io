@@ -3,7 +3,7 @@ import Cube from '../Cube';
 import { MySider } from './MySider';
 import { getMenuName, getProjectName, getAboutItemName } from '../helpers';
 import { useSelectedMenuItemValue } from '../context';
-import { Layout, Breadcrumb, Icon } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 const { Content } = Layout;
 
 

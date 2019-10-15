@@ -18,10 +18,10 @@ export const getProjectName = (groupKey, itemKey) => {
     // '';
 
   // 
-  let siderItem = siderGroup.submenu.find(item => item.key === itemKey)
-    // groupKey && itemKey ? 
-    // siderGroup.submenu.find(item => item.key === itemKey) :
-    // '';
+  let siderItem =
+    groupKey && itemKey ? 
+    siderGroup.submenu.find(item => item.key === itemKey) :
+    '';
 
   let siderGroupName = siderGroup ? siderGroup.name : ''; 
   let siderItemName = siderItem ? siderItem.name : '';

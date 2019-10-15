@@ -1,7 +1,7 @@
 import React from 'react';
 import Cube from '../Cube';
 import { MySider } from './MySider';
-import { getMenuName, getProjectName } from '../helpers';
+import { getMenuName, getProjectName, getAboutItemName } from '../helpers';
 import { useSelectedMenuItemValue } from '../context';
 import { Layout, Breadcrumb, Icon } from 'antd';
 const { Content } = Layout;
@@ -9,9 +9,14 @@ const { Content } = Layout;
 
 export const MyContent = () => {
   const {selectedMenuItem, selectedSiderGroup, selectedSiderItem} = useSelectedMenuItemValue();
+  
   const menuName = getMenuName(selectedMenuItem);
-  const [ siderGroupName, siderItemName ] = getProjectName(selectedSiderGroup, selectedSiderItem);
 
+  let siderGroupName, siderItemName = '';
+
+  selectedMenuItem === 'PROJECTS' ? 
+  [ siderGroupName, siderItemName ] = getProjectName(selectedSiderGroup, selectedSiderItem) : 
+  siderItemName = getAboutItemName(selectedSiderItem);
   
   return (
     <Content style={{ padding: '0 50px' }}>

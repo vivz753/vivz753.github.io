@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelectedMenuItemValue } from '../context';
 import { ProjectItems, AboutItems } from '../constants';
+import { getProjectGroupOf } from '../helpers';
 
 
 import { Layout, Menu, Icon } from 'antd';
@@ -9,28 +10,31 @@ const { SubMenu } = Menu;
 
 export const MySider = () => {
 
-  const {selectedMenuItem, selectedSiderGroup, setSelectedSiderGroup, selectedSiderItem, setSelectedSiderItem} = useSelectedMenuItemValue();
+  const {selectedMenuItem, selectedSiderGroup, setSelectedSiderGroup, selectedSiderItem, setSelectedSiderItem, setContentPage} = useSelectedMenuItemValue();
 
   let sideMenuItems = [];
   selectedMenuItem === 'PROJECTS' ? sideMenuItems = ProjectItems : sideMenuItems = AboutItems;
 
-
+  console.log(selectedMenuItem);
+  console.log(selectedSiderGroup);
+  console.log(selectedSiderItem);
   return (
     <Sider width={300} style={{ background: '#fff' }}>
         <Menu
           mode="inline"
           defaultSelectedKeys={[selectedSiderItem]}
           defaultOpenKeys={[selectedSiderGroup]}
-          style={{ height: '100%' }}
+          selectedKeys={[selectedSiderItem, ]}
+          style={{ height: '100%',  textAlign: 'left' }}
           onClick={({key}) => {
-            setSelectedSiderItem(key); 
-            console.log('sidebar menu click: ' + key);
+            setSelectedSiderItem(key);
+            selectedMenuItem === 'PROJECTS' && setSelectedSiderGroup(getProjectGroupOf(key).key); 
+            setContentPage(key);
           }}
         >
-        {sideMenuItems.map(item => {
+        {selectedMenuItem === 'PROJECTS' && sideMenuItems.map(item => {
           return (
             <SubMenu
-              style={{ textAlign: 'left'}}
               key={item.key}
               title={
                 <span>
@@ -40,8 +44,8 @@ export const MySider = () => {
               }
               onTitleClick={({key}) => {
                 setSelectedSiderGroup(key);
-                setSelectedSiderItem('');
-                console.log('sidebar submenu click: ' + key)
+                setSelectedSiderItem('')
+                // key !== selectedSiderGroup && setSelectedSiderItem('');
               }}
             >
               {item.submenu.map(item => {
@@ -53,6 +57,19 @@ export const MySider = () => {
 
           )
         })}
+
+        {selectedMenuItem === 'ABOUT' && sideMenuItems.map(item => {
+          return (
+            <Menu.Item 
+              key={item.key}
+            >
+               <Icon type={item.icon} />
+              {item.name}
+            </Menu.Item>
+          )
+        })
+
+        }
         </Menu>
       </Sider>
   )

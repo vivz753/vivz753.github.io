@@ -4,8 +4,8 @@ export const MenuItems = [
 ]
 
 export const AboutItems = [
-  {key: 'BIO', name: 'Bio'},
-  {key: 'RESUME', name: 'Resume'},
+  {key: 'BIO', name: 'Bio', icon: 'user'},
+  {key: 'RESUME', name: 'Resume', icon: 'solution'},
 ]
 
 export const ProjectItems = [

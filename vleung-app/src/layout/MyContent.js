@@ -1,23 +1,24 @@
 import React from 'react';
 import Cube from '../Cube';
 import { MySider } from './MySider';
-import { getMenuTitle } from '../helpers';
+import { getMenuName, getProjectName } from '../helpers';
 import { useSelectedMenuItemValue } from '../context';
 import { Layout, Breadcrumb, Icon } from 'antd';
 const { Content } = Layout;
 
 
 export const MyContent = () => {
-  const {selectedMenuItem} = useSelectedMenuItemValue();
-  console.log(selectedMenuItem)
-  const title = getMenuTitle(selectedMenuItem);
-  console.log(title);
+  const {selectedMenuItem, selectedSiderGroup, selectedSiderItem} = useSelectedMenuItemValue();
+  const menuName = getMenuName(selectedMenuItem);
+  const [ siderGroupName, siderItemName ] = getProjectName(selectedSiderGroup, selectedSiderItem);
 
+  
   return (
     <Content style={{ padding: '0 50px' }}>
     <Breadcrumb style={{ margin: '16px 0' }}>
-      <Breadcrumb.Item>{title}</Breadcrumb.Item>
-      {/* <Breadcrumb.Item>{subtitle}</Breadcrumb.Item> */}
+      {menuName && (<Breadcrumb.Item>{menuName}</Breadcrumb.Item>)}
+      {siderGroupName &&  <Breadcrumb.Item>{siderGroupName}</Breadcrumb.Item>}
+      {siderItemName  && <Breadcrumb.Item>{siderItemName}</Breadcrumb.Item>}
     </Breadcrumb>
 
     <Layout style={{ padding: '24px 0', background: '#fff' }}>

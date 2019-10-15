@@ -9,7 +9,6 @@ export const MyLayout = () => {
 
 const { SubMenu } = Menu;
 const {selectedMenuItem, setSelectedMenuItem} = useSelectedMenuItemValue();
-console.log('MyLayout: ' + selectedMenuItem)
 
 return (
 <Layout>

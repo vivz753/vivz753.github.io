@@ -8,7 +8,7 @@ const { Header, Content, Footer, Sider } = Layout;
 export const MyLayout = () => {
 
 const { SubMenu } = Menu;
-const {selectedMenuItem, setSelectedMenuItem} = useSelectedMenuItemValue();
+const {selectedMenuItem, setSelectedMenuItem, setSelectedSiderGroup, setSelectedSiderItem} = useSelectedMenuItemValue();
 
 return (
 <Layout>
@@ -16,10 +16,12 @@ return (
       <div className="logo" />
       <Menu
         mode="horizontal"
-        defaultSelectedKeys={['2']}
+        defaultSelectedKeys={[selectedMenuItem]}
         style={{ lineHeight: '64px' }}
         onClick={({key}) => {
           setSelectedMenuItem(key);
+          setSelectedSiderGroup('');
+          setSelectedSiderItem('');
         }}
       >
         {MenuItems.map(item => {

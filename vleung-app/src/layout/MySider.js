@@ -2,13 +2,14 @@ import React from 'react';
 import { useSelectedMenuItemValue } from '../context';
 import { ProjectItems, AboutItems } from '../constants';
 
+
 import { Layout, Menu, Icon } from 'antd';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 export const MySider = () => {
 
-  const {selectedMenuItem} = useSelectedMenuItemValue();
+  const {selectedMenuItem, selectedSiderGroup, setSelectedSiderGroup, selectedSiderItem, setSelectedSiderItem} = useSelectedMenuItemValue();
 
   let sideMenuItems = [];
   selectedMenuItem === 'PROJECTS' ? sideMenuItems = ProjectItems : sideMenuItems = AboutItems;
@@ -18,9 +19,13 @@ export const MySider = () => {
     <Sider width={300} style={{ background: '#fff' }}>
         <Menu
           mode="inline"
-          defaultSelectedKeys={['PUMPKINCAT']}
-          defaultOpenKeys={['2D/3D']}
+          defaultSelectedKeys={[selectedSiderItem]}
+          defaultOpenKeys={[selectedSiderGroup]}
           style={{ height: '100%' }}
+          onClick={({key}) => {
+            setSelectedSiderItem(key); 
+            console.log('sidebar menu click: ' + key);
+          }}
         >
         {sideMenuItems.map(item => {
           return (
@@ -33,6 +38,11 @@ export const MySider = () => {
                   {item.name}
                 </span>
               }
+              onTitleClick={({key}) => {
+                setSelectedSiderGroup(key);
+                setSelectedSiderItem('');
+                console.log('sidebar submenu click: ' + key)
+              }}
             >
               {item.submenu.map(item => {
                 return (
@@ -43,36 +53,6 @@ export const MySider = () => {
 
           )
         })}
-
-
-          {/* <SubMenu
-            key="sub1"
-            title={
-              <span>
-                <Icon type="laptop" />
-                Web Apps
-              </span>
-            }
-          >
-            <Menu.Item key="1">Todoist</Menu.Item>
-            <Menu.Item key="2">Bunker</Menu.Item>
-            <Menu.Item key="3">Port69 Portal</Menu.Item>
-            <Menu.Item key="4">SJ EEW</Menu.Item>
-          </SubMenu>
-
-          <SubMenu
-            key="sub2"
-            title={
-              <span>
-                <Icon type="picture" />
-                2D/3D
-              </span>
-            }
-          >
-            <Menu.Item key="5">Pumpkin Cat & the Skulls</Menu.Item>
-            <Menu.Item key="6">Octree Raytracing</Menu.Item>
-            <Menu.Item key="7">Unbarrelble</Menu.Item>
-          </SubMenu> */}
         </Menu>
       </Sider>
   )

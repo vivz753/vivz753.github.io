@@ -27,8 +27,8 @@ export const MySider = () => {
           selectedKeys={[selectedSiderItem, ]}
           style={{ height: '100%',  textAlign: 'left' }}
           onClick={({key}) => {
-            setSelectedSiderItem(key);
             selectedMenuItem === 'PROJECTS' && setSelectedSiderGroup(getProjectGroupOf(key).key); 
+            setSelectedSiderItem(key);
             setContentPage(key);
           }}
         >

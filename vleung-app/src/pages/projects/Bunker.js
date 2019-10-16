@@ -15,20 +15,20 @@ export const Bunker = () => {
       <a href="https://se-165.firebaseapp.com/">
       https://se-165.firebaseapp.com/
       </a>
-
-      
-      <br>
-      </br>A Hotel Booking App made with React and Firebase. My role in a team of 10 was the UI/UX designer, code reviewer, and front-end developer.
-      <br></br>
       </span>
 
       </Paragraph>
       <iframe 
         title="bunker"
         width="100%" height="600px"
-        frameBorder="0"
+        frameBorder="1"
         src="https://se-165.firebaseapp.com/home"
       />
+    <Paragraph>      
+      <span>
+        A Hotel Booking App made with React and Firebase. My role in a team of 10 was the UI/UX designer, code reviewer, and front-end developer.
+      </span>
+    </Paragraph>
     </div>
 
   )

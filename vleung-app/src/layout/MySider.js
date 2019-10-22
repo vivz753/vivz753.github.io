@@ -15,9 +15,9 @@ export const MySider = () => {
   let sideMenuItems = [];
   selectedMenuItem === 'PROJECTS' ? sideMenuItems = ProjectItems : sideMenuItems = AboutItems;
 
-  console.log(selectedMenuItem);
-  console.log(selectedSiderGroup);
-  console.log(selectedSiderItem);
+  // console.log(selectedMenuItem);
+  // console.log(selectedSiderGroup);
+  // console.log(selectedSiderItem);
   return (
     <Sider 
       collapsed={siderCollapsed}
@@ -27,8 +27,9 @@ export const MySider = () => {
         <Menu
           mode="inline"
           defaultSelectedKeys={[selectedSiderItem]}
-          defaultOpenKeys={[selectedSiderGroup]}
-          selectedKeys={[selectedSiderItem, ]}
+          //hard coded to open project submenus
+          defaultOpenKeys={['WEBAPPS', '2D/3D']}
+          selectedKeys={[selectedSiderItem]}
           style={{ height: '100%',  textAlign: 'left' }}
           onClick={({key}) => {
             selectedMenuItem === 'PROJECTS' && setSelectedSiderGroup(getProjectGroupOf(key).key); 
@@ -51,6 +52,7 @@ export const MySider = () => {
               onTitleClick={({key}) => {
                 setSelectedSiderGroup(key);
                 setSelectedSiderItem('')
+                console.log(item.key)
                 // key !== selectedSiderGroup && setSelectedSiderItem('');
               }}
             >

@@ -1,34 +1,42 @@
 import React from 'react';
 import '../index.css'
-import { Typography } from 'antd';
-const {Paragraph} = Typography;
+import { Typography, Tag } from 'antd';
+const { Title, Paragraph } = Typography;
 
 export const Bunker = () => {
 
   return (
     <div>
+      <Title>
+        Bunker: A Hotel Booking Application
+      </Title>
+      <Paragraph>
+        <Tag color="blue">React</Tag>
+        <Tag color="geekblue">Visual Studio Code</Tag>
+        <Tag color="cyan">Semantic UI React</Tag>
+        <Tag color="red">Firebase</Tag>
+      </Paragraph>
       <Paragraph>
       <span>
-      
-      Please minimize the sidebar for full experience. Currently hosted at <br>
+      Please minimize the sidebar for full experience. 
+      <br>
       </br>
-      <a href="https://se-165.firebaseapp.com/">
-      https://se-165.firebaseapp.com/
+      Currently hosted at <a href="https://se-165.firebaseapp.com/">
+       https://se-165.firebaseapp.com/
       </a>
       </span>
-
       </Paragraph>
       <iframe 
         title="bunker"
-        width="100%" height="600px"
+        width="100%" height="900px"
         frameBorder="1"
         src="https://se-165.firebaseapp.com/home"
       />
-    <Paragraph>      
-      <span>
-        A Hotel Booking App made with React and Firebase. My role in a team of 10 was the UI/UX designer, code reviewer, and front-end developer.
-      </span>
-    </Paragraph>
+      <Paragraph>
+        <span>
+          Thanks to Jenil for great leadership and Prof. Anna Meng for great mentorship and my wonderful group team members
+        </span>
+      </Paragraph>
     </div>
 
   )

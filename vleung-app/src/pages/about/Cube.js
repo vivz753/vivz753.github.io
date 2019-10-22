@@ -5,7 +5,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import React, { Component } from "react";
 
 const style = {
-    height: '600px', // we can control scene size by setting container dimensions
+    height: '800px', // we can control scene size by setting container dimensions
     width: '100%'
   };
 
@@ -20,7 +20,7 @@ class Cube extends Component {
         this.startAnimationLoop();
 
         //check for window resizing
-        // window.addEventListener("resize", this.handleWindowResize);
+        window.addEventListener("resize", this.handleWindowResize);
 
       }
 
@@ -29,9 +29,12 @@ class Cube extends Component {
         // var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
         const width = this.mount.clientWidth;
+        console.log(width)
         // const width = window.innerWidth;
         // const height = window.innerHeight/2;
         const height = this.mount.clientHeight;
+        console.log(height)
+
 
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(
@@ -86,6 +89,7 @@ class Cube extends Component {
     }
 
     handleWindowResize = () => {
+        console.log('window resize')
         const width = this.mount.clientWidth;
         const height = this.mount.clientHeight;
     
@@ -98,16 +102,6 @@ class Cube extends Component {
       };
 
     render(){
-
-        // const targetRef = useRef();
-        // console.log(targetRef.current.offSetWidth)
-        // this.setState({
-        //     dimensions: {
-        //       width: targetRef.current.offsetWidth,
-        //       height: targetRef.current.offsetHeight
-        //     },
-        //   });
-
 
         return(
             <div style={style} ref={ref => (this.mount = ref)}></div>

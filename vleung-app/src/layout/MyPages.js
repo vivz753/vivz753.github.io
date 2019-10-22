@@ -7,9 +7,11 @@ import { Bunker } from '../pages/projects/Bunker';
 import { ToDoist } from '../pages/projects/ToDoist';
 import { PumpkinCat } from '../pages/projects/PumpkinCat';
 import { Octree } from '../pages/projects/Octree';
+import { Resume } from '../pages/about/Resume';
+import { Unbarrelble } from '../pages/projects/Unbarrelble';
 
 import { Layout, Typography, Icon} from 'antd';
-const { Content, Header } = Layout;
+const { Content } = Layout;
 const { Title } = Typography;
 
 
@@ -24,28 +26,23 @@ export const MyPages = () => {
 
 
   return (
-    <Content style={{ padding: '0 24px', minHeight: '600px', width: 'calc(100% - 300px)' }}>
+    <Content style={{ padding: '0 24px', minHeight: '300px', width: 'calc(100% - 300px)' }}>
       <div style={{ textAlign: 'left'}}>
         <Icon
           type={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={toggle}
         />
       </div>
-      {contentPage !== "BIO" &&
-        <Title level={2}>
-          {contentPage}
-        </Title>
-      }
-
-      {contentPage === 'CUBE' && <Cube />}
-
+      
       {contentPage === 'BIO' && <Bio />}
-      {contentPage === 'RESUME' && <div> i'm resume</div>}
+      {contentPage === 'CUBE' && <Cube />}
+      {contentPage === 'RESUME' && <Resume />}
       {contentPage === 'PUMPKINCAT' && <PumpkinCat />}
       {contentPage === 'OCTREE' && <Octree />}
-      {contentPage === 'UNBARRELBLE' && <div> i'm unbarrelble</div>}
+      {contentPage === 'UNBARRELBLE' && <Unbarrelble />}
       {contentPage === 'TODOIST' && <ToDoist />}
       {contentPage === 'BUNKER' && <Bunker />}
+
     </Content>
   )
 }

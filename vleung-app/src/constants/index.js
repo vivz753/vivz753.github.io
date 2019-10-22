@@ -28,7 +28,7 @@ export const ProjectItems = [
     submenu: [
       { key: 'PUMPKINCAT', name: 'Pumpkin Cat & the Skulls'},
       { key: 'OCTREE', name: 'Raytracing in 3D using an Octree'},
-      { key: 'UNBARRELBLE', name: 'Unbarrelble: A 3D Unity Game'}
+      { key: 'UNBARRELBLE', name: 'Unbarrelble: A 3D Simulation'}
     ]
   },
 ]

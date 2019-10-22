@@ -19,9 +19,10 @@ return (
         defaultSelectedKeys={[selectedMenuItem]}
         style={{ lineHeight: '64px' }}
         onClick={({key}) => {
-          setSelectedMenuItem(key);
-          setSelectedSiderGroup('');
-          setSelectedSiderItem('');
+          // don't delete breadcrumbs if nav item hasn't changed
+          key !== selectedMenuItem && setSelectedMenuItem(key);
+          key !== selectedMenuItem && setSelectedSiderGroup('');
+          key !== selectedMenuItem && setSelectedSiderItem('');
         }}
       >
         {MenuItems.map(item => {

@@ -20,7 +20,7 @@ class Cube extends Component {
         this.startAnimationLoop();
 
         //check for window resizing
-        window.addEventListener("resize", this.handleWindowResize);
+        // window.addEventListener("resize", this.handleWindowResize);
 
       }
 

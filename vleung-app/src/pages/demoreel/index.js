@@ -38,7 +38,7 @@ return (
               key="sub1"
               title={
                 <span>
-                  <Icon type="user" />
+                  {/* <Icon type="user" /> */}
                   subnav 1
                 </span>
               }
@@ -52,7 +52,7 @@ return (
               key="sub2"
               title={
                 <span>
-                  <Icon type="laptop" />
+                  {/* <Icon type="laptop" /> */}
                   subnav 2
                 </span>
               }
@@ -66,7 +66,7 @@ return (
               key="sub3"
               title={
                 <span>
-                  <Icon type="notification" />
+                  {/* <Icon type="notification" /> */}
                   subnav 3
                 </span>
               }

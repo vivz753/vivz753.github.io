@@ -4,7 +4,7 @@ import { ProjectItems, AboutItems } from '../constants';
 import { getProjectGroupOf } from '../helpers';
 
 
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -43,7 +43,7 @@ export const MySider = () => {
               key={item.key}
               title={
                 <span>
-                  <Icon type={item.icon} />
+                  {/* <Icon type={item.icon} /> */}
                   <span>
                     {item.name}
                   </span>
@@ -71,7 +71,7 @@ export const MySider = () => {
             <Menu.Item 
               key={item.key}
             >
-               <Icon type={item.icon} />
+               {/* <Icon type={item.icon} /> */}
                <span>
               {item.name}
                </span>

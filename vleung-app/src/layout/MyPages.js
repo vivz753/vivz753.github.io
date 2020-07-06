@@ -28,10 +28,10 @@ export const MyPages = () => {
   return (
     <Content style={{ padding: '0 24px', minHeight: '300px', width: 'calc(100% - 300px)' }}>
       <div style={{ textAlign: 'left'}}>
-        <Icon
+        {/* <Icon
           type={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={toggle}
-        />
+        /> */}
       </div>
       
       {contentPage === 'BIO' && <Bio />}
